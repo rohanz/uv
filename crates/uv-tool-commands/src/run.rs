@@ -298,7 +298,7 @@ pub async fn run(
         python_platform,
         install_mirrors,
         options,
-        &settings,
+        settings,
         &client_builder,
         isolated,
         lfs,
@@ -751,7 +751,7 @@ async fn get_or_create_environment(
     python_platform: Option<TargetTriple>,
     install_mirrors: PythonInstallMirrors,
     options: ResolverInstallerOptions,
-    settings: &ResolverInstallerSettings,
+    settings: ResolverInstallerSettings,
     client_builder: &BaseClientBuilder<'_>,
     isolated: bool,
     lfs: GitLfsSetting,
@@ -1031,7 +1031,6 @@ async fn get_or_create_environment(
     let exclusions = Excludes::from_entries(spec.excludes.iter().cloned());
 
     let marker_environment = resolution_markers(None, python_platform.as_ref(), &interpreter);
-    let settings = settings.clone();
     let settings = ResolverInstallerSettings {
         resolver: ResolverSettings {
             config_settings_package: settings.resolver.config_settings_package.merge(
