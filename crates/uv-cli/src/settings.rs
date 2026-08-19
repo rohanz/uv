@@ -3555,6 +3555,7 @@ pub struct PipSyncSettings {
     pub src_file: Vec<RequirementsInput>,
     pub constraints: Vec<RequirementsInput>,
     pub build_constraints: Vec<RequirementsInput>,
+    pub require_build_hashes: bool,
     pub dry_run: DryRun,
     pub output_format: PipInstallFormat,
     pub refresh: Refresh,
@@ -3572,6 +3573,7 @@ impl PipSyncSettings {
             src_file,
             constraints,
             build_constraints,
+            require_build_hashes,
             extra,
             all_extras,
             no_all_extras,
@@ -3619,6 +3621,7 @@ impl PipSyncSettings {
                 .into_iter()
                 .filter_map(Maybe::into_option)
                 .collect(),
+            require_build_hashes,
             dry_run: if check {
                 DryRun::Check
             } else {
@@ -3674,6 +3677,7 @@ pub struct PipInstallSettings {
     pub overrides: Vec<RequirementsInput>,
     pub excludes: Vec<RequirementsInput>,
     pub build_constraints: Vec<RequirementsInput>,
+    pub require_build_hashes: bool,
     pub dry_run: DryRun,
     pub output_format: PipInstallFormat,
     pub constraints_from_workspace: Vec<Requirement>,
@@ -3702,6 +3706,7 @@ impl PipInstallSettings {
             overrides,
             excludes,
             build_constraints,
+            require_build_hashes,
             extra,
             all_extras,
             no_all_extras,
@@ -3806,6 +3811,7 @@ impl PipInstallSettings {
                 .into_iter()
                 .filter_map(Maybe::into_option)
                 .collect(),
+            require_build_hashes,
             dry_run: if check {
                 DryRun::Check
             } else {
