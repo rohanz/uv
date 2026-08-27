@@ -1893,6 +1893,7 @@
             "frozen-lockfile",
             "minimum-libc-version",
             "build-dependency-check",
+            "build-dependency-hashes",
             "build-lazy-imports"
           ]
         },

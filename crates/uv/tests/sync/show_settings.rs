@@ -3984,6 +3984,7 @@ fn preview_features() {
     +            FrozenLockfile,
     +            MinimumLibcVersion,
     +            BuildDependencyCheck,
+    +            BuildDependencyHashes,
     +            BuildLazyImports,
     +        ],
          },
