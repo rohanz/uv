@@ -42,7 +42,7 @@ use uv_fs::{PythonExt, Simplified, create_symlink};
 use uv_install_operations::loggers::{DefaultInstallLogger, SummaryInstallLogger};
 use uv_installer::{InstallationStrategy, SatisfiesResult, SitePackages};
 use uv_lock::{Installable, Lock};
-use uv_lock_operations::{LockError, LockMode, LockOperation, LockTarget};
+use uv_lock_operations::{LockCommand, LockError, LockMode, LockOperation, LockTarget};
 use uv_normalize::{DefaultExtras, DefaultGroups, PackageName};
 use uv_preview::Preview;
 use uv_python::{
@@ -79,7 +79,6 @@ struct GistResponse {
 struct GistFile {
     raw_url: String,
 }
-
 /// Run a command.
 #[expect(clippy::fn_params_excessive_bools)]
 pub async fn run(
@@ -243,6 +242,7 @@ pub async fn run(
             // Generate a lockfile.
             let lock = match Box::pin(
                 LockOperation::new(
+                    LockCommand::Run,
                     mode,
                     &settings.resolver,
                     &client_builder,
@@ -758,6 +758,7 @@ pub async fn run(
 
                 let result = match Box::pin(
                     LockOperation::new(
+                        LockCommand::Run,
                         mode,
                         &settings.resolver,
                         &client_builder,
