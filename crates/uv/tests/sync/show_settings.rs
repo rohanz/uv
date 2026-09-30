@@ -3974,7 +3974,6 @@ fn preview_features() {
     +            CentralizedProjectEnvs,
     +            ToolInstallLocks,
     +            WorkspaceListScripts,
-    +            NoDistutilsPatch,
     +            IndexHashAlgorithm,
     +            LockfileFormatCheck,
     +            LockfileNormalization,
