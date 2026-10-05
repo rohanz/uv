@@ -7126,6 +7126,7 @@ name = "uv-macho"
 version = "0.0.90"
 dependencies = [
  "anyhow",
+ "scroll",
  "thiserror",
 ]
 
