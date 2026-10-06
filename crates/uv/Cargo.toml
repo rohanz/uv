@@ -114,6 +114,7 @@ embed-manifest = { workspace = true }
 [dev-dependencies]
 uv-cache-key = { workspace = true }
 uv-extract = { workspace = true }
+uv-macho = { workspace = true }
 uv-platform = { workspace = true }
 uv-publish = { workspace = true, features = ["test"] }
 uv-test = { workspace = true }
